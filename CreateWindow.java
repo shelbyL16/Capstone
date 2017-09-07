@@ -1,42 +1,41 @@
-import java.awt.*;
-import javax.swing.*;
-import java.lang.*;
+/**
+ * Created by Lucia on 2017/09/07.
+ */
 
-public class window {
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-    // create a simple GUI window
-    public static void createWindow() {
-        JFrame frame = new JFrame("SignSupport");
 
-        frame.add(new JPanel() {
+public class CreateWindow extends Application {
 
-            @Override // placeholder for actual content
-            public Dimension getPreferredSize() {
-                return new Dimension(600, 500);
-            }
-        });
-
-        frame.pack(); // automatically sets size of window for content
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
-        Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
-        int x = (int) rect.getMaxX() - frame.getWidth();
-        int y = 0;
-        frame.setLocation(x, y);
-        frame.setVisible(true); // show window
-
-        JLabel textLabel = new JLabel("Welcome to SignSupport", SwingConstants.CENTER);     // create text label
-        textLabel.setPreferredSize(new Dimension(300, 100));                                // set text size
-        frame.getContentPane().add(textLabel, BorderLayout.NORTH);                         // add JLabel to JFrame
-
-    }
+    Button lessonButton;
 
     public static void main(String[] args) {
-        createWindow();
-
+        launch(args);
     }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("SignSupport");
+        lessonButton = new Button();
+        lessonButton.setText("Lessons");
+        lessonButton.setLayoutX(100);
+        lessonButton.setLayoutY(300);
+
+
+        Pane layout = new Pane();
+        layout.getChildren().add(lessonButton);
+
+        Scene scene = new Scene(layout, 600, 500);
+        primaryStage.setScene(scene);
+
+
+
+
+        primaryStage.show();
+    }
 }
