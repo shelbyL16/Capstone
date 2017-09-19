@@ -10,7 +10,7 @@ import java.io.File;
 public class ReadXML 
 {
 
-  public static void main(String argv[]) 
+  public static void main(String args[]) 
   {
 
     //try to read in the file
@@ -54,11 +54,10 @@ public class ReadXML
             
 			   Element eElement = (Element) nNode;
             
-            System.out.println("Lesson : " + eElement.getAttribute("lesson"));
-            //System.out.println("Lesson Title  : " + eElement.getElementsByTagName("lessonTitle").item(0).getTextContent());
-            //System.out.println("Lesson Id  : " + eElement.getElementsByTagName("lesson_id").item(0).getTextContent());
-            //System.out.println("Lesson type  : " + eElement.getElementsByTagName("lesson_type").item(0).getTextContent());
-            //System.out.println("lesson title : " + eElement.getElementsByTagName("lesson_title").item(0).getTextContent());
+            //System.out.println("Lesson : " + eElement.getAttribute("lesson"));
+            System.out.println("Lesson : " + eElement.getAttribute("lesson_title"));
+            System.out.println("Lesson ID : " + eElement.getAttribute("lesson_id"));
+            System.out.println("Lesson Type : " + eElement.getAttribute("lesson_type"));
 		   }//end if 
 	   }//end for loop through tree
       
