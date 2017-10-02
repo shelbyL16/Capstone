@@ -10,6 +10,7 @@ public class Main extends Application {
 
     Stage window;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -18,7 +19,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Window.fxml"));
 
         window.setTitle("SignSupport");
-        window.setScene(new Scene(root, 600, 500));
+        window.setScene(new Scene(root, 500, 600));
         window.show();
     }
 

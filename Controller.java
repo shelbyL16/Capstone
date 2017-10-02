@@ -2,6 +2,7 @@ package signsupport;
 
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,14 +21,13 @@ import java.util.logging.Logger;
 
 public class Controller {
 
-    private AnchorPane root;
-
+    @FXML
     public void lessonButtonClicked(ActionEvent event) throws IOException {
 
         //System.out.println("Button clicked");
 
         Parent layout = FXMLLoader.load(getClass().getResource("LessonList.fxml"));
-        Scene lessonList = new Scene(layout, 600, 500);
+        Scene lessonList = new Scene(layout);
         Stage lessonStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         lessonStage.setScene(lessonList);
         lessonStage.show();
