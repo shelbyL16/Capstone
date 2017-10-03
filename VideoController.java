@@ -1,12 +1,14 @@
 package signsupport;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -20,50 +22,45 @@ import java.util.ResourceBundle;
 /**
  * Created by Lucia on 2017/10/03.
  */
-public class VideoController {   // implements Initializable {
+public class VideoController implements Initializable {
 
+    private Media m;
+    private MediaPlayer mp;
+    @FXML private MediaView mv;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+            String videoURL = "src"+ MainController.clickedScreen.getVideoURL();
+            String path = new File(videoURL).getAbsolutePath();
+            System.out.println(path);
+
+            m = new Media(new File(path).toURI().toString());
+            mp = new MediaPlayer(m);
+            mv.setMediaPlayer(mp);
+            mp.setAutoPlay(true);
+
+            //scalability for videos
+            DoubleProperty width = mv.fitWidthProperty();
+            DoubleProperty height = mv.fitHeightProperty();
+            width.bind(Bindings.selectDouble(mv.sceneProperty(),"width"));
+            height.bind(Bindings.selectDouble(mv.sceneProperty(),"height"));
+
+            //mp.play();
+
+            System.out.println("Working controller got screen: " + MainController.clickedScreen.getVidCaption());
+
+    }
+
+    // for when 'Back' button is clicked on Video - transition back to TaskList
     @FXML
-    private MediaView mv;
-    private MediaPlayer mediaPlayer;
-    private Media media;
+    public void backToTaskClicked(ActionEvent event) throws IOException {
 
-    //@Override
-    //public void initialize(URL url, ResourceBundle rb) {
-
-    public void videoObject() {
-
-        try {
-            Parent layout = FXMLLoader.load(getClass().getResource("Video.fxml"));
-            Scene scene = new Scene(layout);
-            Stage stage = new Stage();
-
-            //Pane mvPane = new Pane() {                };
-
-
-            String path = new File("src/video/Welcome screen.mp4").getAbsolutePath();
-            System.out.println("Working Directory = " +
-                    System.getProperty("user.dir"));
-            media = new Media(new File(path).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-            mv = new MediaView(mediaPlayer);
-            //mv.setMediaPlayer(mediaPlayer);
-            System.out.println(mv);
-            mediaPlayer.setAutoPlay(true);
-
-            //mvPane.getChildren().add(this.mv);
-            //mvPane.setStyle("-fx-background-color: black;");
-            //setCenter(mvPane);
-            //scene.setRoot(layout);
-
-            //VideoPlayer mediaControl = new VideoPlayer(mediaPlayer);
-            //scene.setRoot(mediaControl);
-
-            /*primaryStage.setScene(scene);
-            primaryStage.show();
-            System.out.println("ps: " + primaryStage);*/
-        }
-        catch (Exception ex) {}
-
+        Parent layout = FXMLLoader.load(getClass().getResource("TaskList.fxml"));
+        Scene taskList = new Scene(layout);
+        Stage taskStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        taskStage.setScene(taskList);
+        taskStage.show();
     }
 
 }

@@ -1,32 +1,18 @@
 package signsupport;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.animation.FadeTransition;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 // main controller class
 
@@ -99,7 +85,7 @@ public class Controller {
                     layout.getChildren().add(b);
                 }
 
-                Parse p = new Parse();
+                XMLReader p = new XMLReader();
                 screenArr = p.parse();
 
                 break;
@@ -119,7 +105,7 @@ public class Controller {
 
         ObservableList<String> taskNames = FXCollections.observableArrayList();
 
-        Parse p = new Parse();
+        XMLReader p = new XMLReader();
         screenArr = p.parse();
 
         //System.out.println(screenArr.get(0).getVidCaption());

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,6 +29,7 @@
       <AnchorPane prefHeight="542.0" prefWidth="500.0">
          <children>
             <MediaView fx:id="mv" fitHeight="350.0" fitWidth="500.0" />
+            <JFXButton buttonType="RAISED" layoutX="29.0" layoutY="466.0" onAction="#backToTaskClicked" prefHeight="47.0" prefWidth="101.0" text="Back" />
          </children>
       </AnchorPane>
    </children>
