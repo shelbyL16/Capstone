@@ -39,23 +39,23 @@ public class ReadXML
             document.getDocumentElement().normalize();
 
             //print out root for testing purposes
-            System.out.println("The root element is :" + document.getDocumentElement().getNodeName() + "\n");
+            //System.out.println("The root element is :" + document.getDocumentElement().getNodeName() + "\n");
 
             //list of lessons - it is reading the elements into the list fine
             NodeList nLessonList = document.getElementsByTagName("lesson");
-            System.out.println("I have the lesson list ready");
-            System.out.println("The length of the lessonList is: " + nLessonList.getLength()+"\n");
+            //System.out.println("I have the lesson list ready");
+            //System.out.println("The length of the lessonList is: " + nLessonList.getLength()+"\n");
 
             //list for the screens - it is reading the elements into the list fine, the error is somewhere else
             NodeList nScreenList = document.getElementsByTagName("screen");
-            System.out.println("I have the screen list ready");
-            System.out.println("The length of the screenList is: " + nScreenList.getLength()+ "\n");
+            //System.out.println("I have the screen list ready");
+            //System.out.println("The length of the screenList is: " + nScreenList.getLength()+ "\n");
 
             //lesson list iteration
             for (int temp = 0; temp < nLessonList.getLength(); temp++)
             {
                 Node nNode = nLessonList.item(temp);
-                System.out.println("\nCurrent Element :" + nNode.getNodeName());
+                //System.out.println("\nCurrent Element :" + nNode.getNodeName());
 
                 if (nNode.getNodeType() == Node.ELEMENT_NODE)
                 {
@@ -64,11 +64,8 @@ public class ReadXML
 
                     Element eElement = (Element) nNode;
 
-                    System.out.println("Lesson : " + eElement.getAttribute("lesson"));
-                    //System.out.println("Lesson Title  : " + eElement.getElementsByTagName("lessonTitle").item(0).getTextContent());
-                    //System.out.println("Lesson Id  : " + eElement.getElementsByTagName("lesson_id").item(0).getTextContent());
-                    //System.out.println("Lesson type  : " + eElement.getElementsByTagName("lesson_type").item(0).getTextContent());
-                    //System.out.println("lesson title : " + eElement.getElementsByTagName("lesson_title").item(0).getTextContent());
+                    //System.out.println("Lesson : " + eElement.getAttribute("lesson"));
+
                 }//end if
             }//end for loop through tree
 
@@ -77,7 +74,7 @@ public class ReadXML
             {
 
                 Node nNode2 = nScreenList.item(temp);
-                System.out.println("\nCurrent Element :" + nNode2.getNodeName());
+                //System.out.println("\nCurrent Element :" + nNode2.getNodeName());
 
                 // create new screens for array
                 Screen screen = new Screen();
@@ -88,9 +85,9 @@ public class ReadXML
 
                     //return elements
                     //System.out.println("Screen : " + eElement.getAttribute("screen"));
-                    System.out.println("ScreenId is  : " + eElement.getElementsByTagName("screenID").item(0).getTextContent());
-                    System.out.println("Video is  : " + eElement.getElementsByTagName("video").item(0).getTextContent());
-                    System.out.println("Video Caption is  : " + eElement.getElementsByTagName("vid_caption").item(0).getTextContent());
+                    //System.out.println("ScreenId is  : " + eElement.getElementsByTagName("screenID").item(0).getTextContent());
+                    //System.out.println("Video is  : " + eElement.getElementsByTagName("video").item(0).getTextContent());
+                    //System.out.println("Video Caption is  : " + eElement.getElementsByTagName("vid_caption").item(0).getTextContent());
 
                     // add data to screen object
                     screen.setScreenID(eElement.getElementsByTagName("screenID").item(0).getTextContent());

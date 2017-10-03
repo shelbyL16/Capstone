@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,12 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="500.0" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="signsupport.LessonListController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="500.0" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="signsupport.Controller">
    <children>
       <AnchorPane blendMode="SRC_ATOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="598.0" minWidth="500.0" prefHeight="598.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
          <children>
-            <ScrollBar layoutX="475.0" layoutY="58.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="542.0" prefWidth="24.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="475.0" AnchorPane.topAnchor="58.0" />
-            <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="529.0" onAction="#backButtonClicked" prefHeight="49.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Back" />
+            <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="529.0" onAction="#backToHomeClicked" prefHeight="49.0" prefWidth="91.0" style="-fx-background-color: #ffffff;" text="Back" />
             <Pane layoutX="-4.0" prefHeight="58.0" prefWidth="608.0" style="-fx-background-color: #000000;">
                <children>
                   <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="21.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
@@ -31,7 +28,7 @@
                   </Label>
                </children>
             </Pane>
-            <JFXListView layoutX="14.0" layoutY="64.0" prefHeight="455.0" prefWidth="450.0" />
+            <JFXButton alignment="BASELINE_LEFT" layoutY="58.0" onAction="#taskButtonClicked" prefHeight="59.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" text="S3: Our Organization" />
          </children>
       </AnchorPane>
    </children>

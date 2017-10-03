@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     Stage window;
+    public static Boolean isSplashLoaded = false;
 
 
     @Override
@@ -16,10 +17,10 @@ public class Main extends Application {
 
         window = primaryStage;
 
-        Parent root = FXMLLoader.load(getClass().getResource("Window.fxml"));
+        Parent layout = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 
         window.setTitle("SignSupport");
-        window.setScene(new Scene(root, 500, 600));
+        window.setScene(new Scene(layout));
         window.show();
     }
 

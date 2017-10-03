@@ -1,22 +1,27 @@
+package signsupport;
+
 /**
  * Created by magzf on 2017/09/06.
  */
-import javafx.beans.*;
-import javafx.event.*;
-import javafx.geometry.*;
-import javafx.util.*;
+
+import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Priority;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
-import javafx.application.Platform;
-import javafx.scene.image.*;
+import javafx.scene.media.MediaView;
+import javafx.util.Duration;
 
 public class VideoPlayer extends BorderPane {
     private MediaPlayer mediaPlayer;
@@ -203,4 +208,3 @@ public class VideoPlayer extends BorderPane {
         }
     }
 }
-

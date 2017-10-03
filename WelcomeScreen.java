@@ -1,6 +1,5 @@
-/**
- * Created by magzf on 2017/09/06.
- */
+package signsupport;
+
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -17,7 +16,7 @@ public class WelcomeScreen extends Application {
 
     private static final String MEDIA_URL = "http://download.oracle.com/otndocs/products/javafx/oow2010-2.flv";
 
-    private static final File file = new File("C:/Users/magzf/OneDrive/Documents/2017/CSC3003S/Capstone Project/Welcome screen.mp4");
+    private static final File file = new File("/Users/Lucia/Downloads/Welcome screen.mp4");
     private static final String VIDEO_URL = file.toURI().toString();
 
     private Button lessonButton;
@@ -30,8 +29,8 @@ public class WelcomeScreen extends Application {
         Scene scene = new Scene(root, 600, 500);
 
 
-        // create media player
-       //Media media = new Media(MEDIA_URL);
+        // create video player
+        //Media video = new Media(MEDIA_URL);
         Media media = new Media(VIDEO_URL);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
